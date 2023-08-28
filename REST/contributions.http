@@ -1,0 +1,10 @@
+### Create a new contribution and update project information
+POST http://localhost:5000/api/contributions
+content-type: application/json
+
+{
+  "contributorAddress": "contributor-address",
+  "projectTitle": "project-title",
+  "contributionAmount": 50,
+  "user": "user-address"
+}

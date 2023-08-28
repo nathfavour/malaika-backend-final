@@ -1,0 +1,55 @@
+### Create a new project
+POST http://localhost:5000/api/projects
+content-type: application/json
+
+{
+  "nickname": "Project Nickname",
+  "projectTitle": "Project Title",
+  "projectDescription": "Project Description",
+  "projectCategory": "Project Category",
+  "amountToRaise": 10000,
+  "minimumBuyIn": 100,
+  "roi": 5,
+  "stakeAmount": 500,
+  "photo": "project-photo-url"
+}
+
+### Get all projects
+GET http://localhost:5000/api/projects
+
+### Update project details
+PUT http://localhost:5000/api/projects/user-address
+content-type: application/json
+
+{
+  "user": "user-address", // User address (required)
+  // ... (other fields to update)
+}
+
+### Update Project's address field, and transfer ownership.
+PUT http://localhost:5000/api/projects/update-user/address/project-title
+
+### Get projects without user address
+GET http://localhost:5000/api/projects/projects-without-user
+
+### Delete a project
+DELETE http://localhost:5000/api/projects/user-address/project-title
+
+### Fetch contributors and deleted project details
+GET http://localhost:5000/api/projects/fetch-contributors/address/project-title
+
+### Return contributions after project delete
+POST http://localhost:5000/api/projects/return-contributions
+content-type: application/json
+
+[
+  {
+    "contributorsAddress": "contributor-address",
+    "projectTitle": "project-title",
+    "contributionAmount": 50,
+    "user": "user-address"
+  }
+]
+
+### Get projects associated with a specific user address
+GET http://localhost:5000/api/projects/user/user-address
